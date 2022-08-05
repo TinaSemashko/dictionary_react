@@ -33,7 +33,10 @@ function App() {
             >
               open-sourced on GitHub{" "}
             </a>
-            and <a href="">hosted on Netlify</a>
+            and{" "}
+            <a href="https://effortless-sunburst-a3a68f.netlify.app/">
+              hosted on Netlify
+            </a>
           </em>
         </p>
       </footer>
