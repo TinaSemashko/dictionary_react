@@ -1,12 +1,28 @@
-import React, { useState, useEffect } from "react";
-//import ForecastForDay from "./ForecastForDay";
+import React, { useState } from "react";
+import Results from "./Results";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./Dictionary.css";
 
-export default function Dictionary(props) {
-  function handleSubmit() {}
+export default function Dictionary() {
+  let [keyword, setKeyword] = useState("");
+  let [results, setResults] = useState("");
 
-  function updateCity() {}
+  function showDictonaryInfo(response) {
+    setResults(response.data[0]);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+    axios.get(apiUrl).then(showDictonaryInfo);
+  }
+
+  function updateWord(event) {
+    event.preventDefault();
+    setKeyword(event.target.value);
+  }
 
   return (
     <div class="container">
@@ -17,12 +33,12 @@ export default function Dictionary(props) {
             className="form-control "
             placeholder="Enter a word.."
             autoFocus="on"
-            onChange={updateCity}
+            onChange={updateWord}
           />
-
           <input type="submit" value="Search" className="btn btn-primary" />
         </div>
       </form>
+      <Results results={results} />
     </div>
   );
 }

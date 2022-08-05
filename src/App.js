@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Dictionary from "./Dictionary";
 import logo from "./logo.png";
 import "./App.css";
