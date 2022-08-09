@@ -6,14 +6,15 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="container">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1>Dictionary</h1>
       </header>
-      <body>
-        <Dictionary />
-      </body>
+      <main>
+        <Dictionary defaultKeyword="freedom" />
+      </main>
       <footer>
-        <p class="text-center mt-5">
+        <p className="text mt-5">
           <em>
             This website was coded by{" "}
             <a
